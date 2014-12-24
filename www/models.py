@@ -48,3 +48,14 @@ class Comment(Model):
     user_image = StringField(ddl='varchar(500)')
     content = TextField()
     created_at = FloatField(updatable=False, default=time.time)
+
+class Post(Model):
+    __table__ = 'posts'
+
+    id = StringField(primary_key=True, default=next_id, ddl='varchar(50)')
+    post_id = StringField(updatable=False, dll='varchar(50)')
+    user_id = StringField(updatable=False, ddl='varchar(50)')
+    user_name = StringField(updatable=False, ddl='varchar(50)')
+    user_image = StringField(updatable=False, ddl='varchar(500)')
+    content = TextField()
+    create_at = FloatField(updatable=False, default=time.time)

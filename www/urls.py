@@ -187,6 +187,11 @@ def manage_blogs_edit(blog_id):
 def manage_users():
     return dict(page_index=_get_page_index(), user=ctx.request.user)
 
+@view('manage_post_list.html')
+@get('/manage/posts')
+def manage_posts():
+    return dict(page_index=_get_page_index(), post=ctx.request.post)
+
 @api
 @get('/api/blogs')
 def api_get_blogs():
@@ -300,3 +305,11 @@ def api_get_users():
     for u in users:
         u.password = '******'
     return dict(users=users, page=page)
+
+@api
+@get('/api/posts')
+def api_get_comments():
+    total = Post.count_all()
+    page = Page(total, _get_page_index())
+    posts = Post.find_by('order by created_at desc limit ?,?', page.offset, page.limit)
+    return dict(posts=posts, page=page)

@@ -1,6 +1,6 @@
 {% extends '__base__.html' %}
 
-{% block title %}编辑日志{% endblock %}
+{% block title %}编辑随笔{% endblock %}
 
 {% block beforehead %}
 
@@ -39,7 +39,7 @@ function initVue(blog) {
 
 $(function () {
     startLoading();
-    getApi('/api/blogs/{{ id }}', function (err, blog) {
+    getApi('/api/posts/{{ id }}', function (err, blog) {
         if (err) {
             showError(err);
         }
