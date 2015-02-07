@@ -52,16 +52,8 @@ $(function() {
 
 {% block content %}
 
-    <div class="uk-width-1-1 uk-margin-bottom">
-        <div class="uk-panel uk-panel-box">
-            <ul class="uk-breadcrumb">
-                <li class="uk-active"><span>评论</span></li>
-                <li><a href="/manage/blogs">日志</a></li>
-                <li><a href="/manage/users">用户</a></li>
-                <li><a href="/manage/posts">随笔</a></li>
-            </ul>
-        </div>
-    </div>
+    {% include '__menu__.html' %}
+
 
     <div class="uk-width-1-1">
         <div class="uk-alert uk-alert-danger uk-hidden"></div>
